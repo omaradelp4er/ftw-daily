@@ -21,6 +21,8 @@ import { TopbarContainer } from '../../containers';
 
 import facebookImage from '../../assets/saunatimeFacebook-1200x630.jpg';
 import twitterImage from '../../assets/saunatimeTwitter-600x314.jpg';
+import newsmartImage from '../../assets/NewSmart.jpeg';
+
 import css from './LandingPage.module.css';
 
 export const LandingPageComponent = props => {
@@ -32,7 +34,7 @@ export const LandingPageComponent = props => {
   const siteTitle = config.siteTitle;
   const schemaTitle = intl.formatMessage({ id: 'LandingPage.schemaTitle' }, { siteTitle });
   const schemaDescription = intl.formatMessage({ id: 'LandingPage.schemaDescription' });
-  const schemaImage = `${config.canonicalRootURL}${facebookImage}`;
+  const schemaImage = `${config.canonicalRootURL}${newsmartImage}`;
 
   return (
     <Page
@@ -45,6 +47,7 @@ export const LandingPageComponent = props => {
       twitterImages={[
         { url: `${config.canonicalRootURL}${twitterImage}`, width: 600, height: 314 },
       ]}
+      newemartImages={[{ url: newsmartImage, width: 1200, height: 630 }]}
       schema={{
         '@context': 'http://schema.org',
         '@type': 'WebPage',

@@ -12,6 +12,8 @@ import { CookieConsent } from '../../components';
 
 import facebookImage from '../../assets/saunatimeFacebook-1200x630.jpg';
 import twitterImage from '../../assets/saunatimeTwitter-600x314.jpg';
+import newsmartImage from '../../assets/NewSmart.jpeg';
+
 import css from './Page.module.css';
 
 const preventDefault = e => {
@@ -81,6 +83,7 @@ class PageComponent extends Component {
       contentType,
       description,
       facebookImages,
+      newsmartImages,
       published,
       schema,
       tags,
@@ -115,6 +118,15 @@ class PageComponent extends Component {
         height: 630,
       },
     ];
+
+    const newsmartImgs = newsmartImages || [
+      {
+        name: 'newSmart',
+        url: `${canonicalRootURL}${newsmartImage}`,
+        width: 1200,
+        height: 630,
+      },
+    ];
     const twitterImgs = twitterImages || [
       {
         name: 'twitter',
@@ -129,6 +141,7 @@ class PageComponent extends Component {
       contentType,
       description: metaDescription,
       facebookImages: facebookImgs,
+      newsmartImages:newsmartImgs,
       twitterImages: twitterImgs,
       published,
       tags,
@@ -234,6 +247,7 @@ PageComponent.defaultProps = {
   contentType: 'website',
   description: null,
   facebookImages: null,
+  newsmartImages:null,
   twitterImages: null,
   published: null,
   referrer: null,
@@ -257,6 +271,13 @@ PageComponent.propTypes = {
   contentType: string, // og:type
   description: string, // page description
   facebookImages: arrayOf(
+    shape({
+      width: number.isRequired,
+      height: number.isRequired,
+      url: string.isRequired,
+    })
+  ),
+  newsmartImages: arrayOf(
     shape({
       width: number.isRequired,
       height: number.isRequired,
